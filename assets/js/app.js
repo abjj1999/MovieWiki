@@ -67,10 +67,7 @@ form.addEventListener("submit", function(event){
     console.log(searchTerm);
     if(searchTerm){
         getMovie(searchUrl + '&query=' + searchTerm);
-        
     }
-    else{
-        getMovie(frontPage);
-    }
+   
     search.value = '';
 })
