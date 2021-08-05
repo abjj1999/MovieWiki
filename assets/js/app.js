@@ -1,15 +1,15 @@
+//Url for the movie data Base
 const apiKey = 'api_key=0284347479778309f6a7ae5d50f6e356';
 const Url = 'https://api.themoviedb.org/3'
 const frontPage = Url + '/discover/movie?sort_by=popularity.desc&' + apiKey;
 const imgUrl = 'https://image.tmdb.org/t/p/w500/';
 const searchUrl = Url + '/search/movie?' + apiKey;
 
-
+//calling out the HTML element
 const main = document.getElementById('main');
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-getMovie(frontPage);
 
 function getMovie(url){
     fetch(url)
@@ -56,6 +56,8 @@ var getRating= function(vote){
         return 'red'
     }
 }
+
+getMovie(frontPage);
 
 
 form.addEventListener("submit", function(event){
