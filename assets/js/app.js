@@ -9,6 +9,7 @@ const searchUrl = Url + '/search/movie?' + apiKey;
 const main = document.getElementById('main');
 const form = document.getElementById("form");
 const search = document.getElementById("search");
+const logInBtn = document.getElementById("log-in");
 
 
 function getMovie(url){
@@ -70,4 +71,18 @@ form.addEventListener("submit", function(event){
     }
    
     search.value = '';
+})
+
+logInBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var logInMenu = document.getElementById("log-in-form");
+    console.log(logInMenu);
+    logInMenu.classList.add("is-active");
+})
+
+document.querySelector(".modal-background")
+.addEventListener("click", function() {
+    document.getElementById("log-in-form")
+    .classList.remove("is-active");
 })
