@@ -31,9 +31,47 @@
     <div class="modal" id="log-in-form">
         <div class="modal-background"></div>
         <div class="modal-content">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore culpa blanditiis corporis error. Iste totam voluptas quas deleniti minima, ipsam fugiat repellat autem nihil et quasi eum sunt, facilis earum!</p>
+            <div class="field">
+                <label class="label has-text-white">Username</label>
+                <input type="text" class="input" id="username">
+            </div>
+            <div class="field">
+                <label class="label has-text-white">Password</label>
+                <input type="text" class="input" id="password">
+            </div>
+            <div class="field is-flex is-justify-content-space-between">
+                <button class="button is-rounded" id="log-in-submit">
+                    <span>Submit</span>
+                </button>
+            
+                <button class="button is-medium is-ghost has-text-white is-flex-direction-wrap sign-up-button">
+                    <span>Not signed up? Click here!</span>
+                </button>
+            </div>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <div class="modal" id="sign-up-form">
+        <div class="modal-background" id="sign-up-background"></div>
+        <div class="modal-content">
+            <div class="field">
+                <label class="label has-text-white">Choose Username</label>
+                <input type="text" class="input" id="choose-username">
+            </div>
+            <div class="field">
+                <label class="label has-text-white">Create Password</label>
+                <input type="text" class="input" id="sign-up-create-password">
+            </div>
+            <div class="field">
+                <label class="label has-text-white">Confirm Password</label>
+                <input type="text" class="input" id="sign-up-confirm-password">
+            </div>
+            <div class="field">
+                <button class="button is-rounded" id="sign-up-submit">
+                    <span>Submit</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <script src="./assets/js/app.js"></script>

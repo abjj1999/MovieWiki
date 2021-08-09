@@ -12,6 +12,7 @@ const search = document.getElementById("search");
 const logInBtn = document.getElementById("log-in");
 
 
+
 function getMovie(url){
     fetch(url)
     .then(function(response) {
@@ -73,6 +74,7 @@ form.addEventListener("submit", function(event){
     search.value = '';
 })
 
+// Log In button was clicked
 logInBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -81,8 +83,27 @@ logInBtn.addEventListener("click", function(event) {
     logInMenu.classList.add("is-active");
 })
 
+// Log In modal background was clicked (to close)
 document.querySelector(".modal-background")
 .addEventListener("click", function() {
     document.getElementById("log-in-form")
+    .classList.remove("is-active");
+})
+
+// Sign Up button was clicked in Log In modal
+document.querySelector(".sign-up-button")
+.addEventListener("click", function() {
+    console.log("test");
+    document.getElementById("log-in-form")
+    .classList.remove("is-active");
+
+    document.getElementById("sign-up-form")
+    .classList.add("is-active");
+})
+
+// Sign Up modal background was clicked (to close)
+document.querySelector("#sign-up-background")
+.addEventListener("click", function() {
+    document.getElementById("sign-up-form")
     .classList.remove("is-active");
 })
