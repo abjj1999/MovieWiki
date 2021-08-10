@@ -10,6 +10,10 @@ const main = document.getElementById('main');
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const logInBtn = document.getElementById("log-in");
+const accounts = {
+    usernames: [],
+    passwords: []
+};
 
 
 
@@ -59,7 +63,38 @@ var getRating= function(vote){
     }
 }
 
+// var loadAccounts = function() {
+//     accounts = JSON.parse(localStorage.getItem("accounts"));
+// }
+
+// var saveAccounts = function() {
+//     localStorage.setItem("accounts", JSON.stringify(accounts));
+//     location.reload();
+//   };
+
+// Adds created username and password to accounts
+var createAccount = function(username, password) {
+    console.log(username, password);
+    accounts.usernames.push(username);
+    accounts.passwords.push(password);
+
+    // saveAccounts();
+}
+
+var logIn = function(userInput, pwInput) {
+    for (i=0; i < accounts.usernames.length; i++) {
+        if (userInput === accounts.usernames[i] &&
+            pwInput === accounts.passwords[i]) {
+            console.log("successful log-in");
+            return;
+        } 
+    }
+    document.querySelector(".warning-log-2")
+    .innerHTML = "Incorrect username or password.";
+}
+
 getMovie(frontPage);
+// loadAccounts();
 
 
 form.addEventListener("submit", function(event){
@@ -93,7 +128,7 @@ document.querySelector(".modal-background")
 // Sign Up button was clicked in Log In modal
 document.querySelector(".sign-up-button")
 .addEventListener("click", function() {
-    console.log("test");
+
     document.getElementById("log-in-form")
     .classList.remove("is-active");
 
@@ -106,4 +141,81 @@ document.querySelector("#sign-up-background")
 .addEventListener("click", function() {
     document.getElementById("sign-up-form")
     .classList.remove("is-active");
+})
+
+// Submit in sign-up modal was clicked
+document.querySelector(".sign-up-submit")
+.addEventListener("click", function() {
+    var username = document.querySelector(".choose-username")
+    .value.trim();
+    
+    var password = document.querySelector(".create-password")
+    .value.trim();
+
+    var confirm = document.querySelector(".confirm-password")
+    .value.trim();
+
+    // Checks for empty inputs and accurate confirmation
+    if (username === "") {
+        document.querySelector(".warning-submit-1")
+        .innerHTML = "Must choose username.";
+    } else {
+        document.querySelector(".warning-submit-1")
+        .innerHTML = "";
+    }
+    
+    if (password === "") {
+        document.querySelector(".warning-submit-2")
+        .innerHTML = "Must create password.";
+    } else {
+        document.querySelector(".warning-submit-2")
+        .innerHTML = "";
+    }
+
+    if (confirm === "") {
+        document.querySelector(".warning-submit-3")
+        .innerHTML = "Must confirm password.";
+    } else {
+        document.querySelector(".warning-submit-3")
+        .innerHTML = "";
+    }
+
+    if (username === "" ||
+        password === "" ||
+        confirm === "") {
+        return;
+    } else if (confirm === password) {
+        createAccount(username, password);
+    } else {
+        var warning = document.querySelector(".warning-submit-3");
+        warning.innerHTML = "";
+        warning.innerHTML = "Confirmation does not match password entered. Please try again.";
+    }
+})
+
+document.querySelector(".log-in-submit")
+.addEventListener("click", function() {
+    var username = document.querySelector(".username")
+    .value.trim();
+
+    var password = document.querySelector(".password")
+    .value.trim();
+
+    if (username === "") {
+        document.querySelector(".warning-log-1")
+        .innerHTML = "Please enter username.";
+    } else {
+        document.querySelector(".warning-log-1")
+        .innerHTML = "";
+    }
+    
+    if (password === "") {
+        document.querySelector(".warning-log-2")
+        .innerHTML = "Please enter password.";
+    } else {
+        document.querySelector(".warning-log-2")
+        .innerHTML = "";
+    }
+    
+    logIn(username, password);
 })
