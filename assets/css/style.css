@@ -14,7 +14,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-header {
+.header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -22,8 +22,10 @@ header {
     padding: 1rem;
     background-color: #333d79ff;
 }
-.title{
+.titleName{
     color: #fff;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .search{
@@ -33,6 +35,26 @@ header {
     outline: none;
     border-radius: 20px;
     border: none;
+    
+}
+
+/* filter*/
+.tagss{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+.tagg{
+    color: white;
+    padding: 10px 15px;
+    background-color: orange;
+    border-radius: 50px;
+    margin: 0.3rem;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .main{
@@ -52,9 +74,12 @@ header {
     overflow: hidden;
 }
 
-.movie img{
+.movie-img{
     width: 100%
 
+}
+.movie-title{
+    font-size: 1.2rem;
 }
 
 .movie-info{
@@ -83,20 +108,22 @@ span.red{
     color: red;
 }
 
-.overall{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgb(248, 248, 248);
-    padding: 1rem;
-    font-family:'Poppins', sans-serif;
-    max-height: 100%;
-    transform: translateY(101%);
-    transition: transform 0.4s ease-in;
+/* modal css */
+.over-header{
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
-
-.movie:hover .overall{
-    transform: translateY(0);
+.overviewP{
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
+}
+.date{
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
 }
