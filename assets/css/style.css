@@ -14,10 +14,12 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+
 .header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    
     align-items: center;
     padding: 1rem;
     background-color: #333d79ff;
@@ -35,10 +37,52 @@ body{
     outline: none;
     border-radius: 20px;
     border: none;
+    margin-right: 1rem;
     
 }
+.formss{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+#user-welcome{
+    font-family: 'Poppins', sans-serif;
+    margin-right: 1rem;
+}
 /* filter*/
+.filterbtn{
+    display: block;
+    width: 100%;
+    padding:15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+    background-color: rgb(76, 88, 161);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    transition:0.5s ease-in;
+}
+.filterbtn::after{
+    transform: scale(1.5);
+}
+.filterbtn--active{
+    background-color: #333d79ff;
+}
+.filterbtn:hover{
+    background-color: rgb(83, 97, 180);
+    font-size: 1.5rem;
+}
+
+.contant{
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.7s ease-in-out;
+    background-color: rgb(248, 227, 232);
+}
+
 .tagss{
     width: 80%;
     display: flex;
@@ -50,11 +94,17 @@ body{
 .tagg{
     color: white;
     padding: 10px 15px;
-    background-color: orange;
-    border-radius: 50px;
+    background-color:#333d79ff;
+    border-radius: 1rem;
     margin: 0.3rem;
-    display: inline-block;
+    display: inline-flex;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+
+}
+.tagg.highlight{
+    text-decoration: line-through;
+    background-color:rgba(219, 105, 110, 0.945) ;
 }
 
 .main{
