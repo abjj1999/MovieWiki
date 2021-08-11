@@ -10,10 +10,14 @@ const main = document.getElementById('main');
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const logInBtn = document.getElementById("log-in");
-const accounts = {
+var accounts = {
     usernames: [],
     passwords: []
 };
+var activeAccount = {
+    username: []
+}
+var logOut = false;
 
 
 
@@ -63,29 +67,63 @@ var getRating= function(vote){
     }
 }
 
-// var loadAccounts = function() {
-//     accounts = JSON.parse(localStorage.getItem("accounts"));
-// }
+// loads all accounts from localStorage and creates accounts variable
+// if none are found.
+var loadAccounts = function() {
+    accounts = JSON.parse(localStorage.getItem("accounts"));
+    activeAccount = JSON.parse(localStorage.getItem("activeAccount"));
 
-// var saveAccounts = function() {
-//     localStorage.setItem("accounts", JSON.stringify(accounts));
-//     location.reload();
-//   };
+    if (!accounts) {
+        accounts = {
+            usernames: [],
+            passwords: []
+        }
+    }
+
+    if (!activeAccount) {
+        activeAccount = {
+            username: []
+        }
+        document.getElementById("log-in-out")
+        .innerHTML = "Log In";
+
+        return;
+    } else {
+        document.getElementById("log-in-out")
+        .innerHTML = "Log Out";
+
+        logOut = true;
+
+        document.getElementById("user-welcome")
+        .innerHTML = "Hello " + activeAccount.username + "!";
+    }
+    console.log(accounts);
+}
+
+// Adds created account to localStorage
+var saveAccounts = function() {
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+    location.reload();
+  };
 
 // Adds created username and password to accounts
 var createAccount = function(username, password) {
     console.log(username, password);
-    accounts.usernames.push(username);
-    accounts.passwords.push(password);
+    accounts["usernames"].push(username);
+    accounts["passwords"].push(password);
 
-    // saveAccounts();
+    saveAccounts();
 }
 
+// Confirms username and password exist in local storage
 var logIn = function(userInput, pwInput) {
     for (i=0; i < accounts.usernames.length; i++) {
         if (userInput === accounts.usernames[i] &&
             pwInput === accounts.passwords[i]) {
             console.log("successful log-in");
+            activeAccount.username.push(userInput);
+            localStorage.setItem("activeAccount", JSON.stringify(activeAccount));
+            location.reload();
             return;
         } 
     }
@@ -94,7 +132,7 @@ var logIn = function(userInput, pwInput) {
 }
 
 getMovie(frontPage);
-// loadAccounts();
+loadAccounts();
 
 
 form.addEventListener("submit", function(event){
@@ -109,10 +147,15 @@ form.addEventListener("submit", function(event){
     search.value = '';
 })
 
-// Log In button was clicked
+// Log In/out button was clicked
 logInBtn.addEventListener("click", function(event) {
     event.preventDefault();
-
+// If currently logged in, will log out current user. Otherwise will 
+// pull up log-in modal.
+    if (logOut) {
+        localStorage.removeItem("activeAccount");
+        location.reload();
+    }
     var logInMenu = document.getElementById("log-in-form");
     console.log(logInMenu);
     logInMenu.classList.add("is-active");
@@ -193,6 +236,7 @@ document.querySelector(".sign-up-submit")
     }
 })
 
+// Submit button pushed in log-in modal
 document.querySelector(".log-in-submit")
 .addEventListener("click", function() {
     var username = document.querySelector(".username")
@@ -201,6 +245,7 @@ document.querySelector(".log-in-submit")
     var password = document.querySelector(".password")
     .value.trim();
 
+    // Checks for empty input fields in log-in modal
     if (username === "") {
         document.querySelector(".warning-log-1")
         .innerHTML = "Please enter username.";

@@ -12,11 +12,15 @@
 </head>
 <body>
 
-    <header>
+    <header class="is-flex">
         <h1 class="title">MovieWiki <i class="fas fa-video"></i></h1>
+
+        <h2 class="has-text-white" id="user-welcome"></h2>
+
         <button class="button is-rounded" id="log-in">
-            <span>Log In</span>
+            <span id="log-in-out"></span>
         </button>
+
         <form id="form">
             <input type="text" placeholder="Search" class="search" id="search">
         </form>
@@ -50,7 +54,7 @@
                     <span>Submit</span>
                 </button>
             
-                <button class="button is-medium is-ghost has-text-white is-flex-direction-wrap sign-up-button">
+                <button class="button is-medium is-ghost has-text-white sign-up-button">
                     <span>Not signed up? Click here!</span>
                 </button>
             </div>
