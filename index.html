@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Movie App</title>
+</head>
+<body>
+
+    <div class = "header is-flex">
+        <h1 class="titleName">MovieWiki <i class="fas fa-video"></i></h1>
+        <div class="formss">
+          <form id="form">
+              <input type="text" placeholder="Search" class="search" id="search">
+          </form>
+          <h2 class="has-text-white" id="user-welcome"></h2>
+          <button class="button is-rounded" id="log-in">
+            <span id="log-in-out"></span>
+        </button>
+        </div>
+    </div>
+
+ <div class="modal" id="log-in-form">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="field">
+                <label class="label has-text-white">Username</label>
+                <input type="text" class="input username">
+                <p class="has-text-danger warning-log-1">
+
+                </p>
+            </div>
+            <div class="field">
+                <label class="label has-text-white">Password</label>
+                <input type="password" class="input password">
+                <p class="has-text-danger warning-log-2">
+
+                </p>
+            </div>
+            <div class="field is-flex is-justify-content-space-between">
+                <button class="button is-rounded log-in-submit">
+                    <span>Submit</span>
+                </button>
+            
+                <button class="button is-medium is-ghost has-text-white sign-up-button">
+                    <span>Not signed up? Click here!</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="sign-up-form">
+        <div class="modal-background" id="sign-up-background"></div>
+        <div class="modal-content">
+            <div class="field">
+                <label class="label has-text-white">Choose Username</label>
+                <input type="text" class="input choose-username">
+                <p class="has-text-danger warning-submit-1">
+
+                </p>
+            </div>
+            <div class="field">
+                <label class="label has-text-white">Create Password</label>
+                <input type="password" class="input create-password">
+                <p class="has-text-danger warning-submit-2">
+
+                </p>
+            </div>
+            <div class="field">
+                <label class="label has-text-white">Confirm Password</label>
+                <input type="password" class="input confirm-password">
+                <p class="has-text-danger warning-submit-3">
+                    
+                </p>
+            </div>
+            <div class="field">
+                <button class="button is-rounded sign-up-submit">
+                    <span>Submit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--drop down section-->
+    <div class="filter">
+      <button type="button" class="filterbtn">Select A Genre! <i class="fas fa-caret-down"></i></button>
+      <div class="contant">
+        <div class="tagss" id="tags">
+          
+        </div>
+      </div>
+    </div>
+
+
+    <main id="main" class = "main">
+       
+    </main>
+
+    
+
+
+    <div class="modal modals">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title"></p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+    </section>
+    <footer class="modal-card-foot">
+      <a href="" class="trailer-btn">
+        <button class="button is-success">Movie Article</button>
+
+        
+      </a>
+    </footer>
+  </div>
+</div>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
